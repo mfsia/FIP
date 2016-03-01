@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical|center_horizontal"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/statusMessage"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.05" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Dispositivos Pareados"
+        android:onClick="searchPairedDevices"
+        android:id="@+id/btn_dispositivos"
+        android:layout_weight="0.05" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Iniciar Descoberta de Dispositivos"
+        android:onClick="discoverDevices"/>
+        android:id="@+id/btn_descoberta"
+        android:layout_weight="0.05" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Habilitar Visibilidade"
+        android:onClick="enableVisibility"
+        android:id="@+id/btn_habilitar"
+        android:layout_weight="0.05" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Esperar Conexão"
+        android:onClick="waitConnection"
+        android:id="@+id/btn_conexao"
+        android:layout_weight="0.05" />
+</LinearLayout>
