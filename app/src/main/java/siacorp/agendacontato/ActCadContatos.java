@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.*;
@@ -39,6 +41,7 @@ public class ActCadContatos extends AppCompatActivity {
     private SQLiteDatabase conn;
     private RepositorioContato repositorioContato;
     private Contato contato;
+    private MainBluetoothActivity mainBluetoothActivity;
 
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
 
@@ -215,8 +218,36 @@ public class ActCadContatos extends AppCompatActivity {
     {
         TextView messageBox = (TextView) findViewById(R.id.txtTag);
         String messageBoxString = messageBox.getText().toString();
-        byte[] data =  messageBoxString.getBytes();
-        connect.write(data);
+        sendMessage(messageBoxString);
+    }
+
+    public void esquecer (View v)
+    {
+        sendMessage("0");
+    }
+
+    private void sendMessage(String message) {
+        connect = MainBluetoothActivity.connect;
+
+        if(connect == null) {
+            showMessage("ERRO", "Nenhum dispositivo conectado");
+        } else {
+            connect.write(message.getBytes());
+            showMessage("", "Sinal enviado");
+        }
+    }
+
+    private void showMessage(String title, String message) {
+        new AlertDialog.Builder(this)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
     }
 
 

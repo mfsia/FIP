@@ -22,7 +22,11 @@ public class MainBluetoothActivity extends AppCompatActivity {
     public static int SELECT_DISCOVERED_DEVICE = 3;
 
     static TextView statusMessage;
-    ConnectionThread connect;
+    public static ConnectionThread connect;
+
+    public ConnectionThread getConnection() {
+        return this.connect;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

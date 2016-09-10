@@ -74,6 +74,14 @@
             android:id="@+id/btnEncontrar"
             android:layout_gravity="center_horizontal" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ESQUECER"
+            android:onClick="esquecer"
+            android:id="@+id/btnEsquecer"
+            android:layout_gravity="center_horizontal" />
+
     </LinearLayout>
 
 </LinearLayout>

@@ -25,7 +25,8 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="Iniciar Descoberta de Dispositivos"
-        android:onClick="discoverDevices"/>
+        android:onClick="discoverDevices"
+        android:layout_weight="0.08" />
         android:id="@+id/btn_descoberta"
         android:layout_weight="0.05" />
 
